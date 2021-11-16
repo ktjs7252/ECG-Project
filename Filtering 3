@@ -1,0 +1,36 @@
+int fc = 10;
+double dt = ANALOG_PINT_TIMER_INTERVAL/1000;
+double ANALOG_PINT_TIMER_INTERVAL=2;
+double lambda = 2*PI*fc*dt;
+double x=0;
+double x_f = 0;
+double x_fold=0;
+
+void setup() {
+  Serial.begin(9600);
+  x=analogRead(A0);
+}
+
+void loop() {
+double deltaMills = 0;
+double thisMillis =millis();
+if(thisMills != thisMills_old){
+deltaMillis = thisMillis - thisMillis_old;
+thisMillis_old = thisMillis;
+}
+
+anlonPinTimer -= deltaMillis;
+
+if(analogPinTimer <=0){
+anolPinTimer += ANALOG_PINT_TIMER_INTERVAL;
+
+x=analogRead(A0);
+x_f = lambda/(1+lambda)*x+1/(1+lambda)*x_fold;
+x_fold = x_f;
+
+Serial.print(-x);
+Serial.printf=(",");
+Serial.println("-x_f");
+
+}
+}

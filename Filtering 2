@@ -1,0 +1,24 @@
+double pre_value_1 = 0;
+double pre_value_2= 0;
+double pre_time=0;
+double tau_1=79;
+
+void setup() {
+  Serial.begin(9600);
+  Serial.println("Low pass filter starts!");
+}
+
+void loop() {
+double st_time = mills();
+double dt =(st_time -pre_time);
+double cur_value= analogRead(A0);
+double af_value_1;
+
+Serial.print(-cur_value);
+Serial.print("/t");
+Serial.print(-af_value_1);
+Serial.println("/t");
+
+pre_value_1 = af_value_1;
+pre_time = st_time;
+}
